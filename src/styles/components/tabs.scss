@@ -1,0 +1,30 @@
+
+
+.ele-tabs {
+  .ele-tabs-header {
+    display: flex;
+    justify-content: flex-start;
+    cursor: pointer;
+    transition: color .15s ease-in-out, border-color .15s ease-in-out;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-bottom: 1px solid $grey4;
+
+    .ele-tabs-label {
+      padding: 4px 8px;
+      border-bottom: 2px solid transparent;
+
+      &:hover, &:active ,&.active {
+        color: $primary;
+        border-bottom: 2px solid $primary;
+      }
+      &.disabled {
+        pointer-events: none;
+        cursor: default;
+        color: $grey6;
+      }
+
+    }
+  }
+}

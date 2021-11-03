@@ -1,0 +1,57 @@
+// 字体
+$alert-font-size: $font-size-base !default;
+$alert-font-weight: $font-weight-base !default;
+$alert-font-family: $font-family-base !default;
+$alert-line-height: $line-height-base !default;
+
+$alert-border-radius: $border-radius !default;
+
+@mixin alert-type($color, $background, $border-color) {
+  color: $color;
+  background: $background;
+  border: 1px solid $border-color
+}
+
+.alert {
+  position: fixed;
+  right: 20px;
+  top: 50px;
+  width: 400px;
+  padding: 10px 14px;
+  font-size: $alert-font-size;
+  font-weight: $alert-font-weight;
+  font-family: $alert-font-family;
+  line-height: $alert-line-height;
+  border-radius: $alert-border-radius;
+  .alert-header {
+    display: flex;
+    justify-content: space-between;
+    .alert-title.alert-title-bold {
+      font-weight: $font-weight-bold;
+    }
+    .alert-close-icon {
+      font-size: 14px;
+      cursor: pointer;
+    }
+  }
+  .alert-desc {
+    padding: 10px 0 0;
+    margin: 0;
+  }
+  //&.alert-hide {
+  //  display: none;
+  //}
+}
+
+.alert-warning {
+  @include alert-type($black, $warning, $warning)
+}
+.alert-default {
+  @include alert-type($white, $primary, $primary)
+}
+.alert-success {
+  @include alert-type($black, $success, $success)
+}
+.alert-danger {
+  @include alert-type($black, $danger, $danger)
+}

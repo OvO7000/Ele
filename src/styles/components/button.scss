@@ -1,0 +1,126 @@
+// 按钮
+// 字体
+$btn-font-weight: $font-weight-base !default;
+$btn-font-family: $font-family-base !default;
+$btn-line-height: $line-height-base !default;
+
+// size
+$btn-font-size: $font-size-base !default;
+$btn-font-size-sm: $font-size-sm !default;
+$btn-font-size-lg: $font-size-lg !default;
+
+$btn-padding-y: .375rem !default;
+$btn-padding-x: .75rem !default;
+$btn-padding-y-sm: .25rem !default;
+$btn-padding-x-sm: .5rem !default;
+$btn-padding-y-lg: .5rem !default;
+$btn-padding-x-lg: 1rem !default;
+
+$btn-border-radius: $border-radius !default;
+$btn-border-radius-lg: $border-radius-lg !default;
+$btn-border-radius-sm: $border-radius-sm !default;
+
+// 其他
+$btn-box-shadow: inset 0 1px 0 rgba($white, .15), 0 1px 1px rgba($black, .075) !default;
+$btn-transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out !default;
+$btn-border-width: $border-width !default;
+$btn-disabled-opacity: .65 !default;
+
+@mixin button-size($btn-padding-x, $btn-padding-y, $font-size, $btn-border-radius) {
+  padding: $btn-padding-y $btn-padding-x;
+  font-size: $font-size;
+  border-radius: $btn-border-radius;
+}
+
+@mixin button-type(
+  $color,
+  $border-color,
+  $background,
+  $color_hover: $color,
+  $border-color_hover: lighten($background, 10%),
+  $background_hover: lighten($background, 7.5%),
+) {
+  color: $color;
+  background: $background;
+  border-color: $border-color;
+  &:hover {
+    color: $color_hover;
+    background: $background_hover;
+    border-color: $border-color_hover;
+  }
+  &:focus,
+  &.focus {
+    color: $color_hover;
+    background: $background_hover;
+    border-color: $border-color_hover;
+  }
+}
+
+.btn {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  font-weight: $btn-font-weight;
+  font-family: $btn-font-family;
+  line-height: $btn-line-height;
+  text-align: center;
+  white-space: nowrap;
+  border: $btn-border-width solid transparent;
+  background-image: none;
+  border-radius: $btn-border-radius;
+  box-shadow: $btn-box-shadow;
+  transition: $btn-transition;
+  cursor: pointer;
+  outline: none;
+  &:focus{
+    outline: none;
+  }
+}
+
+.btn-md {
+  @include button-size($btn-padding-x, $btn-padding-y, $btn-font-size, $btn-border-radius);
+}
+
+.btn-sm {
+  @include button-size($btn-padding-x-sm, $btn-padding-y-sm, $btn-font-size-sm, $btn-border-radius-sm);
+}
+
+.btn-lg {
+  @include button-size($btn-padding-x-lg, $btn-padding-y-lg, $btn-font-size-lg, $btn-border-radius-lg);
+}
+
+.btn-default {
+  @include button-type($black, $grey6, $white, $primary, $primary, $white)
+}
+
+.btn-primary {
+  @include button-type($white, $primary, $primary)
+}
+
+.btn-danger {
+  @include button-type($white, $danger, $danger)
+}
+
+.btn-link {
+  color: $link-color;
+  text-decoration: $link-decoration;
+  box-shadow: none;
+  &.hover,
+  &[hover],
+  &.focus,
+  &[focus] {
+    color: $link-hover-color;
+    text-decoration: $link-hover-decoration;
+  }
+}
+
+.btn.disabled,
+.btn[disabled] {
+  opacity: $btn-disabled-opacity;
+  cursor: not-allowed;
+  box-shadow: none;
+  pointer-events: none;
+  > * {
+    pointer-events: none;
+  }
+}

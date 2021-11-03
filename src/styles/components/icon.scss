@@ -1,0 +1,13 @@
+$map: (
+  primary: $primary,
+  info: $info,
+  success: $success,
+  warning: $warning,
+  danger: $danger
+);
+
+@each $key, $val in $map {
+  .ele-icon.#{$key} {
+    color: $val
+  }
+}
