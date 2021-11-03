@@ -7,7 +7,7 @@ function App() {
       <header className="App-header">
           <Alert
             title='title'
-            desc='descdescdescdescdescdescdescdescdescdesc'
+            desc='descd'
           />
       </header>
     </div>

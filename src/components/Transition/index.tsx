@@ -24,7 +24,7 @@ const Transition: FC<TransitionProps> = (props) => {
             classNames={classNames?classNames:animation}
             appear
             unmountOnExit
-            {...rest}
+            {...rest}npx sb init
         >
             {wrapper?(<div>{children}</div>):children}
         </CSSTransition>
