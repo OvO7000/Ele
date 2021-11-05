@@ -3,11 +3,9 @@ import { withInfo } from '@storybook/addon-info';
 import React from 'react'
 import '../src/styles/index.scss'
 
-addDecorator(withInfo);
-
 const wrapperStyle = {
   padding: '20px 40px',
-  width: '500px'
+  width: '1000px'
 }
 
 const storyWrapper = (stroyFn) => (
