@@ -1,0 +1,31 @@
+
+
+.ele-autoComplete {
+  position: relative;
+  .ele-autoComplete-list {
+    position: absolute;
+    margin-top: 4px;
+    border: 1px solid $grey6;
+    padding: 8px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 2px;
+
+    .ele-autoComplete-item {
+      cursor: pointer;
+      padding: 0 12px;
+    }
+    .ele-autoComplete-item.ele-autoComplete-spinner {
+      padding: 0 24px;
+    }
+
+    .ele-autoComplete-item.active,
+    .ele-autoComplete-item:hover,
+    {
+      color: $primary;
+    }
+  }
+}
+
+

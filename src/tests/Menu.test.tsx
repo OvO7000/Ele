@@ -72,17 +72,18 @@ describe('Menu component in Horizontal mode', ()=>{
     })
     it('submenu', () => {
         const submenu = wrapper.getByText('submenu')
-        const menuItem = wrapper.getByText('subMenuItem')
 
-        expect(menuItem).not.toBeVisible()
+        expect(wrapper.queryByText('subMenuItem')).not.toBeInTheDocument()
         // hover 后，submenu 显示
         fireEvent.mouseEnter(submenu)
         act(()=>{
             jest.runAllTimers()
         })
-        expect(menuItem).toBeVisible()
+
+        expect(wrapper.queryByText('subMenuItem')).toBeInTheDocument()
         // 点击 submenu 的 menuitem
-        fireEvent.click(menuItem)
+        const menuItem = wrapper.queryByText('subMenuItem')
+        menuItem && fireEvent.click(menuItem)
         expect(props.onSelect).toBeCalledWith('3-0')
         // 移开鼠标
         fireEvent.mouseLeave(submenu)
@@ -112,17 +113,17 @@ describe('Menu component in vertical mode', () => {
     })
     it('should show dropdown with submenu be clicked', () => {
         const submenu = wrapper.getByText('submenu')
-        const menuItem = wrapper.getByText('subMenuItem')
 
-        expect(menuItem).not.toBeVisible()
+        expect(wrapper.queryByText('subMenuItem')).not.toBeInTheDocument()
         // 点击后，submenu 显示
         fireEvent.click(submenu)
         act(()=>{
             jest.runAllTimers()
         })
-        expect(menuItem).toBeVisible()
+        expect(wrapper.queryByText('subMenuItem')).toBeInTheDocument()
         // 点击 submenu 的 menuitem
-        fireEvent.click(menuItem)
+        const menuItem = wrapper.queryByText('subMenuItem')
+        menuItem && fireEvent.click(menuItem)
         expect(verticalProps.onSelect).toBeCalledWith('3-0')
         // 移开鼠标
         fireEvent.click(submenu)

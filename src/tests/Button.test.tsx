@@ -21,8 +21,8 @@ describe('Button component', ()=>{
 
     it('primary button', ()=>{
         const props: ButtonProps = {
-            btnType: ButtonTypes.Primary,
-            size: ButtonSizes.Large,
+            btnType: 'primary',
+            size: 'lg',
             className: 'cls',
             onClick: jest.fn()
         }
@@ -38,8 +38,8 @@ describe('Button component', ()=>{
 
     it('link button', ()=>{
         const props: ButtonProps = {
-            btnType: ButtonTypes.Link,
-            size: ButtonSizes.Large,
+            btnType: 'link',
+            size: 'lg',
             href: 'www.baidu.com',
             className: 'cls',
             onClick: jest.fn()
@@ -55,8 +55,8 @@ describe('Button component', ()=>{
     })
     it('disabled primary button', ()=>{
         const props: ButtonProps = {
-            btnType: ButtonTypes.Primary,
-            size: ButtonSizes.Large,
+            btnType: 'primary',
+            size: 'lg',
             disabled: true,
             className: 'cls',
             onClick: jest.fn()
@@ -74,8 +74,8 @@ describe('Button component', ()=>{
 
     it('disabled link button', ()=>{
         const props: ButtonProps = {
-            btnType: ButtonTypes.Link,
-            size: ButtonSizes.Large,
+            btnType: 'link',
+            size: 'lg',
             disabled: true,
             className: 'cls',
             href: 'www.baidu.com',

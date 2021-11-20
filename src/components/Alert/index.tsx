@@ -2,6 +2,9 @@ import React, {FC, useState, BaseHTMLAttributes} from 'react';
 import classnames from 'classnames'
 import Icon from '../Icon'
 import Transition from '../Transition'
+import {config} from "react-transition-group";
+
+config.disabled = true
 
 type AlertType = 'success' | 'default' | 'danger' | 'warning'
 

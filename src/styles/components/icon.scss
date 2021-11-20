@@ -11,3 +11,7 @@ $map: (
     color: $val
   }
 }
+
+.ele-icon {
+  transition: transform .25s ease-in-out;
+}

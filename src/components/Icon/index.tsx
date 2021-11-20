@@ -6,15 +6,18 @@ import classnames from 'classnames'
 
 library.add(fas)
 
-export interface Props extends FontAwesomeIconProps {
+export interface IconProps extends FontAwesomeIconProps {
     theme?: 'primary' | 'info' | 'success' | 'danger' | 'warning';
     className?: string;
+    toggle?: boolean;
+    // spin?: boolean;
 }
 
-const Icon:FC<Props> = (props)=>{
-    const { theme, className, icon, ...rest } = props
+const Icon:FC<IconProps> = (props)=>{
+    const { theme, className, icon, toggle, ...rest } = props
     const classes = classnames('ele-icon', className, {
-        [`${theme}`]: theme
+        [`${theme}`]: theme,
+        'fa-rotate-180': toggle
     })
     return (<FontAwesomeIcon className={classes} icon={icon} {...rest} />)
 }

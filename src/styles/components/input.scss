@@ -1,0 +1,117 @@
+
+@mixin size($size: md) {
+  &.ele-input-#{$size} {
+    .ele-input-prepend,
+    > input,
+    .ele-input-icon,
+    .ele-input-append {
+      @extend input.ele-input.ele-input-#{$size};
+    }
+  }
+}
+
+
+input.ele-input {
+  margin: 0;
+  box-sizing: border-box;
+  width: 100%;
+  background-color: $white;
+  border: 1px solid $grey7;
+  border-radius: 2px;
+  transition: border-color 300ms ease-in-out;
+  &:focus, &.active {
+    outline: none;
+    border-color: $primary;
+  }
+  &.ele-input-disabled {
+    border: 1px solid $grey6;
+    pointer-events: none;
+    color: $grey7;
+  }
+}
+
+input.ele-input.ele-input-lg {
+  height: 40px;
+  font-size: 16px;
+  padding: 6.5px 11px;
+}
+input.ele-input.ele-input-md {
+  height: 32px;
+  font-size: 14px;
+  padding: 4px 11px;
+}
+input.ele-input.ele-input-sm {
+  height: 24px;
+  font-size: 14px;
+  padding: 0 7px;
+}
+
+.ele-input.ele-input-wrapper {
+  margin: 0;
+  display: flex;
+  position: relative;
+
+  @include size();
+  @include size(lg);
+  @include size(sm);
+  .ele-input-icon {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    right: 0;
+    top: 0;
+    color: $grey7;
+  }
+
+  .ele-input-prepend {
+    border: 1px solid $grey7;
+    border-right: 0;
+    border-radius: 2px 0 0 2px;
+    cursor: pointer;
+  }
+  .ele-input-append {
+    border: 1px solid $grey7;
+    border-left: 0;
+    border-radius: 0 2px 2px 0;
+    cursor: pointer;
+  }
+
+  > input {
+    @extend input.ele-input;
+    flex: 1 0 auto;
+  }
+  &.withIcon {
+    > input {
+      padding-right: 30px;
+    }
+  }
+  &.withPrepend {
+    > input {
+      border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
+    }
+  }
+  &.withAppend {
+    > input {
+      border-bottom-right-radius: 0;
+      border-top-right-radius: 0;
+    }
+  }
+  &.ele-input-disabled {
+    pointer-events: none;
+    > input, .ele-input-prepend, .ele-input-append {
+      border: 1px solid $grey6;
+      color: $grey7;
+    }
+    .ele-input-prepend {
+      border-right: none
+    }
+    .ele-input-append {
+      border-left: none
+    }
+    .ele-input-icon {
+      color: $grey7;
+    }
+  }
+}
+

@@ -1,9 +1,9 @@
 import React from 'react'
-import { fireEvent, render } from '@testing-library/react'
+import { fireEvent, render, waitFor } from '@testing-library/react'
 import Alert, { AlertProps } from '../components/Alert'
 
 describe('Alert component', ()=>{
-    it('Alert without desc', ()=>{
+    it('Alert without desc', async ()=>{
         const  props: AlertProps = {
             type: 'default',
             title: 'title',
@@ -12,7 +12,7 @@ describe('Alert component', ()=>{
         }
         const { getByText, queryByText, container} = render(<Alert {...props}/>)
         const title = getByText('title')
-        const icon = getByText('×')
+        const icon = container.querySelector('.alert-close-icon') as HTMLElement
         const desc = queryByText('desc')
         const con = container.querySelector('.alert')
 
@@ -22,9 +22,12 @@ describe('Alert component', ()=>{
 
         expect(con).toHaveClass('alert alert-default cls')
         fireEvent.click(icon)
-        expect(con).toHaveClass('alert alert-default cls alert-hide')
+        await waitFor(() => {
+            expect(con).not.toBeInTheDocument()
+
+        })
     })
-    it('Alert with desc', ()=>{
+    it('Alert with desc', async ()=>{
         const  props: AlertProps = {
             type: 'default',
             title: 'title',
@@ -34,7 +37,7 @@ describe('Alert component', ()=>{
         }
         const { getByText, queryByText, container} = render(<Alert {...props}/>)
         const title = getByText('title')
-        const icon = getByText('×')
+        const icon = container.querySelector('.alert-close-icon') as HTMLElement
         const desc = getByText('desc')
         const con = container.querySelector('.alert')
 
@@ -45,6 +48,8 @@ describe('Alert component', ()=>{
 
         expect(con).toHaveClass('alert alert-default cls')
         fireEvent.click(icon)
-        expect(con).toHaveClass('alert alert-default cls alert-hide')
+        await waitFor(() => {
+            expect(con).not.toBeInTheDocument()
+        })
     })
 })

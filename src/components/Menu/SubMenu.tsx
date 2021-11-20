@@ -63,7 +63,6 @@ const SubMenu: FC<Props> = (props) => {
         }
     })
     return (
-
         <div className={classes} {...hoverEvents}>
             <div className='menu-subMenu-title' {...clickEvents}>
                 {title}
