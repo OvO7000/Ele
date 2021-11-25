@@ -1,0 +1,27 @@
+.ele-progress {
+  border-radius: 2px;
+  position: relative;
+  background-color: $grey6;
+
+  .ele-progress-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2px 0 0 2px;
+
+    span {
+      color: #fff
+    }
+  }
+}
+
+@each $key, $val in $map {
+  .ele-progress.ele-progress-#{$key} {
+    .ele-progress-inner {
+      background-color: $val;
+    }
+  }
+}
