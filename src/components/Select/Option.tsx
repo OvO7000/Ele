@@ -1,7 +1,7 @@
 import React, {FC, useContext, MouseEvent} from 'react'
 import classnames from 'classnames'
 import Icon from "../Icon";
-import {Context} from './index'
+import {Context} from './Select'
 
 export interface OptionProps {
     index?: number;

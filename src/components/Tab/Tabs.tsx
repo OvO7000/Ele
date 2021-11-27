@@ -1,14 +1,14 @@
 import React, {FC, useState, ReactElement} from 'react';
 import classnames from 'classnames'
-import {Props as TabItemProps} from "./TabItem";
+import { TabItemProps} from "./TabItem";
 
-export interface Props {
+export interface TabsProps {
     defaultIndex?: number;
     onSelect?: (index: number)=>void;
     className?: string;
 }
 
-const Tabs:FC<Props> = (props)=>{
+const Tabs:FC<TabsProps> = (props)=>{
     const { children, defaultIndex =0, onSelect, className } = props
     const classes = classnames('ele-tabs', className)
     const [active, setActive] = useState(defaultIndex)

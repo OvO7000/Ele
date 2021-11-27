@@ -4,17 +4,17 @@ import classnames from 'classnames'
 import Icon from '../Icon'
 import Transition from '../Transition'
 
-import {Props as MenuItemProps} from "./MenuItem";
+import {MenuItemProps} from "./MenuItem";
 import {MenuContext} from "./Menu";
 
-export interface Props {
+export interface SubMenuProps {
     index?: string;
     className?: string;
     title: string;
     disabled?: boolean
 }
 
-const SubMenu: FC<Props> = (props) => {
+const SubMenu: FC<SubMenuProps> = (props) => {
     const {index, className, title, children} = props
     const context = useContext(MenuContext)
     let panelRef = useRef(null)

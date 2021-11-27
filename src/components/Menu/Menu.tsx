@@ -1,11 +1,11 @@
 import React, {FC, createContext, useState} from 'react';
 import classnames from 'classnames';
-import { Props as MenuItemProps } from "./MenuItem";
+import { MenuItemProps } from './MenuItem';
 
 type MenuMode = 'horizontal' | 'vertical'
 type SelectFunction = (index: string)=>void
 
-export interface Props {
+export interface MenuProps {
     mode?: MenuMode;
     className?: string;
     defaultIndex?: string;
@@ -21,7 +21,7 @@ interface IMenuContext {
 }
 export const MenuContext = createContext<IMenuContext>({ active: '0' })
 
-const Menu: FC<Props> = (props) => {
+const Menu: FC<MenuProps> = (props) => {
     const {className, mode='horizontal', defaultIndex = '0', onSelect, style, children, openSubmenu} = props
     const classes = classnames('menu', className, {
         [`menu-${mode}`]: true,
